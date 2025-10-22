@@ -3,11 +3,13 @@ import { ThemeProvider } from "styled-components";
 
 import themes from "./styles/themes";
 
+import Home from "./pages/Home";
+
 function App() {
   return (
     <ThemeProvider theme={themes.light}>
       <GlobalStyles />
-      <h1>Olá Mundo!</h1>
+      <Home />
     </ThemeProvider>
   );
 }
