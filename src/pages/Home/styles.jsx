@@ -8,5 +8,5 @@ export const Container = styled.div`
   padding: 16px;
   border-radius: 4px;
 
-  background-color: violet;
+  background: #bbbbbb;
 `;
