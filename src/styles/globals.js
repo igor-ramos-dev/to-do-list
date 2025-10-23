@@ -5,11 +5,11 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Sora", sans-serif;
   }
 
   body {
     font-size: 16px;
+    font-family: "Inter", sans-serif;
     background: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.textColor};
   }
