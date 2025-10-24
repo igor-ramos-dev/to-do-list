@@ -6,9 +6,9 @@ export default function ToDoList() {
 
   return (
     <List>
-      {toDos.map((toDo) => {
+      {toDos.map((toDo, index) => {
         return (
-          <Item>
+          <Item key={index}>
             <div className="item-container">
               <Checkbox />
               <span>{toDo}</span>
