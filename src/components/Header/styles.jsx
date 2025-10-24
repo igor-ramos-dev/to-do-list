@@ -21,15 +21,31 @@ export const CheckBox = styled.input`
 `;
 
 export const Slider = styled.span`
-  background-color: #ccc;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+
+  background-color: #ccc;
+  border-radius: 34px;
   transition: 0.4s;
   -webkit-transition: 0.4s;
   cursor: pointer;
+
+  &::before {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+
+    border-radius: 50%;
+    background-color: white;
+    width: 26px;
+    height: 26px;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    content: "";
+  }
 
   ${({ $isChecked }) =>
     $isChecked &&
@@ -38,29 +54,9 @@ export const Slider = styled.span`
       box-shadow: 0 0 1px #fbb034;
 
       &::before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
         transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        -webkit-transform: translateX(26px);
       }
     `}
-
-  &::before {
-    position: absolute;
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    content: "";
-  }
-
-  &.round {
-    border-radius: 34px;
-
-    &::before {
-      border-radius: 50%;
-    }
-  }
 `;
