@@ -19,7 +19,7 @@ export const Form = styled.form`
     letter-spacing: inherit;
 
     &::placeholder {
-      color: #b2bac8;
+      color: ${({ theme }) => theme.colors.placeholder};
       font-weight: 400;
     }
   }
@@ -29,8 +29,14 @@ export const Form = styled.form`
     letter-spacing: inherit;
     font-size: 16px;
     padding: 10px 16px;
-    background: rgba(80, 97, 252, 1);
     border: none;
     border-radius: 4px;
+    box-shadow: ${({ theme }) => theme.colors.shadow};
+    background: ${({ theme }) => theme.colors.btnBg};
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.btnHover};
+    }
   }
 `;

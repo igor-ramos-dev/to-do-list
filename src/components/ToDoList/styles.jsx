@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const List = styled.ul`
   list-style: none;
-  margin-top: 22px;
+  margin-top: 16px;
 `;
 
 export const Item = styled.li`
@@ -25,8 +25,13 @@ export const Item = styled.li`
     gap: 16px;
 
     a {
-      color: #9ca3af;
+      color: ${({ theme }) => theme.colors.icon};
       text-decoration: none;
+      transition: color 0.15s ease-in;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.iconHover};
+      }
     }
   }
 `;

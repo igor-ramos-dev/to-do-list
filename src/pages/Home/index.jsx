@@ -5,10 +5,10 @@ import ToDoForm from "../../components/ToDoForm";
 import ToDoFilters from "../../components/ToDoFilters";
 import ToDoList from "../../components/ToDoList";
 
-export default function Home() {
+export default function Home({ selectedTheme, onToggleTheme }) {
   return (
     <Container>
-      <Header />
+      <Header selectedTheme={selectedTheme} onToggleTheme={onToggleTheme} />
       <ToDoForm />
       <ToDoFilters />
       <ToDoList />

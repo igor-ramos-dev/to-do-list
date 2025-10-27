@@ -2,6 +2,20 @@ import commonStyles from "./common";
 
 export default {
   ...commonStyles,
-  backgroundColor: "#222",
-  textColor: "#fff",
+  colors: {
+    bg: "#0F172A",
+    text: "#F9FAFB",
+    card: "#111827",
+    btnBg: "#8b5cf6",
+    btnHover: "#9A6FF7",
+    btnTheme: "#f59e0b",
+    btnThemeShadow: "0 0 8px rgba(245, 158, 11, 0.5)",
+    border: "#374151",
+    placeholder: "#9ca3af",
+    icon: "#9CA3AF",
+    iconHover: "#60A5FA",
+    toggleOnBg: "#60A5FA",
+
+    shadow: "0px 2px 6px rgba(139, 92, 246, 0.35)",
+  },
 };

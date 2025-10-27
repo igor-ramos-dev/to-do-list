@@ -1,4 +1,10 @@
-import { Container, SearchIcon, InputWrapper } from "./styles";
+import {
+  Container,
+  SearchIcon,
+  InputWrapper,
+  Button,
+  SelectWrapper,
+} from "./styles";
 
 export default function ToDoFilters() {
   return (
@@ -8,16 +14,16 @@ export default function ToDoFilters() {
         <input type="text" placeholder="Buscar..." />
       </InputWrapper>
 
-      <a href="">Todas</a>
-      <a href="">Pendentes</a>
-      <a href="">Concluídas</a>
-      <div className="ordenar-box">
+      <Button>Todas</Button>
+      <Button>Pendentes</Button>
+      <Button>Concluídas</Button>
+      <SelectWrapper>
         <span>Ordenar por:</span>
-        <select name="ordenar" id="ordenar">
+        <select>
           <option value="data">Data</option>
           <option value="nome">Nome</option>
         </select>
-      </div>
+      </SelectWrapper>
     </Container>
   );
 }

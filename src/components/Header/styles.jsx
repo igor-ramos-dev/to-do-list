@@ -27,7 +27,7 @@ export const Slider = styled.span`
   right: 0;
   bottom: 0;
 
-  background-color: #ccc;
+  background-color: ${({ theme }) => theme.colors.btnTheme};
   border-radius: 34px;
   transition: 0.4s;
   -webkit-transition: 0.4s;
@@ -39,7 +39,7 @@ export const Slider = styled.span`
     bottom: 4px;
 
     border-radius: 50%;
-    background-color: white;
+    background-color: #fff;
     width: 26px;
     height: 26px;
     transition: 0.4s;
@@ -47,11 +47,11 @@ export const Slider = styled.span`
     content: "";
   }
 
-  ${({ $isChecked }) =>
-    $isChecked &&
+  ${({ $selectedTheme }) =>
+    $selectedTheme == "dark" &&
     css`
-      background-color: #fbb034;
-      box-shadow: 0 0 1px #fbb034;
+      background-color: ${({ theme }) => theme.colors.btnTheme};
+      box-shadow: ${({ theme }) => theme.colors.btnThemeShadow};
 
       &::before {
         transform: translateX(26px);

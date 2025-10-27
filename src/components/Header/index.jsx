@@ -1,19 +1,12 @@
-import { useState } from "react";
 import { Container, CheckBox, Label, Slider } from "./styles";
 
-export default function Header() {
-  const [isChecked, setIsChecked] = useState(false);
-
-  function handleToggleCheck() {
-    setIsChecked((prevState) => (prevState == false ? true : false));
-  }
-
+export default function Header({ selectedTheme, onToggleTheme }) {
   return (
     <Container>
       <h1>Minhas Tarefas</h1>
       <Label>
-        <CheckBox type="checkbox" onChange={() => handleToggleCheck()} />
-        <Slider $isChecked={isChecked}></Slider>
+        <CheckBox type="checkbox" onClick={() => onToggleTheme()} />
+        <Slider $selectedTheme={selectedTheme}></Slider>
       </Label>
     </Container>
   );
