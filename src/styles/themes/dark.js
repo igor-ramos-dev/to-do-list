@@ -15,6 +15,7 @@ export default {
     icon: "#9CA3AF",
     iconHover: "#60A5FA",
     toggleOnBg: "#60A5FA",
+    toggleSlider: "translate(0px)",
 
     shadow: "0px 2px 6px rgba(139, 92, 246, 0.35)",
   },

@@ -15,4 +15,5 @@ export default {
     iconHover: "#2563EB",
     toggleOffBg: "#E5E7EB",
   },
+  toggleSlider: "translate(26px)",
 };

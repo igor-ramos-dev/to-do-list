@@ -28,12 +28,13 @@ export const Slider = styled.span`
   bottom: 0;
 
   background-color: ${({ theme }) => theme.colors.btnTheme};
+  box-shadow: ${({ theme }) => theme.colors.btnThemeShadow};
   border-radius: 34px;
-  transition: 0.4s;
-  -webkit-transition: 0.4s;
+  transition: all 0.2s ease;
   cursor: pointer;
 
   &::before {
+    content: "";
     position: absolute;
     left: 4px;
     bottom: 4px;
@@ -42,21 +43,12 @@ export const Slider = styled.span`
     background-color: #fff;
     width: 26px;
     height: 26px;
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    content: "";
-  }
+    transition: all 0.4s ease;
 
-  ${({ $selectedTheme }) =>
-    $selectedTheme == "dark" &&
-    css`
-      background-color: ${({ theme }) => theme.colors.btnTheme};
-      box-shadow: ${({ theme }) => theme.colors.btnThemeShadow};
-
-      &::before {
+    ${({ $selectedTheme }) =>
+      $selectedTheme == "dark" &&
+      css`
         transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        -webkit-transform: translateX(26px);
-      }
-    `}
+      `};
+  }
 `;

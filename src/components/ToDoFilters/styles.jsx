@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 24px;
   color: ${({ theme }) => theme.colors.placeholder};
 
   margin-top: 16px;
@@ -19,8 +18,8 @@ export const Container = styled.div`
 export const InputWrapper = styled.div`
   position: relative;
   width: 100%;
-  max-width: 120px;
-  margin-right: -48px;
+  max-width: 140px;
+  margin-right: -20px;
 
   input {
     background-color: transparent;
