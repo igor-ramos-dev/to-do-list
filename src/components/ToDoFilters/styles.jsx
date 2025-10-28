@@ -50,10 +50,14 @@ export const Button = styled.button`
   border: 2px solid transparent;
   padding: 3px 0;
   outline: none;
-  transition: all 0.03s ease-in;
+  transition: all 0.2s ease-in;
 
+  &:hover,
   &:focus {
     color: ${({ theme }) => theme.colors.text};
+  }
+
+  &:focus {
     border-bottom-color: ${({ theme }) => theme.colors.btnBg};
   }
 `;
