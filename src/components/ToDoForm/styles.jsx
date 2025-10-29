@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
+export const ButtonForm = styled.button`
+  color: #fff;
+  letter-spacing: inherit;
+  font-size: 16px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: ${({ theme }) => theme.colors.shadow};
+  background: ${({ theme }) => theme.colors.btnBg};
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.btnHover};
+  }
+`;
+
 export const Form = styled.form`
   display: flex;
   justify-content: space-between;
@@ -21,22 +37,6 @@ export const Form = styled.form`
     &::placeholder {
       color: ${({ theme }) => theme.colors.placeholder};
       font-weight: 400;
-    }
-  }
-
-  button {
-    color: #fff;
-    letter-spacing: inherit;
-    font-size: 16px;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: ${({ theme }) => theme.colors.shadow};
-    background: ${({ theme }) => theme.colors.btnBg};
-    transition: background 0.2s ease;
-
-    &:hover {
-      background: ${({ theme }) => theme.colors.btnHover};
     }
   }
 `;
