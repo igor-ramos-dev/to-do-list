@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { ThemeProvider as StyledCompThemeProvider } from "styled-components";
 
-import themes from "../styles/themes";
+import themes from "../../styles/themes";
 
 import { ThemeContext } from "./ThemeContext";
 
@@ -18,11 +18,10 @@ export default function ThemeContextProvider({ children }) {
 
   const contextValue = useMemo(
     () => ({
-      selectedTheme: theme,
-      currentTheme,
+      currentTheme: theme,
       onToggleTheme: handleToggleTheme,
     }),
-    [theme, currentTheme]
+    [theme]
   );
 
   return (

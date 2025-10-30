@@ -45,8 +45,8 @@ export const Slider = styled.span`
     height: 26px;
     transition: all 0.4s ease;
 
-    ${({ $selectedTheme }) =>
-      $selectedTheme == "dark" &&
+    ${({ $currentTheme }) =>
+      $currentTheme == "dark" &&
       css`
         transform: translateX(26px);
       `};

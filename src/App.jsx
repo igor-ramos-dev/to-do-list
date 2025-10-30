@@ -1,6 +1,6 @@
 import GlobalStyles from "./styles/globals";
 
-import ThemeContextProvider from "./context/ThemeContextProvider";
+import ThemeContextProvider from "./context/Theme/ThemeContextProvider";
 
 import Home from "./pages/Home";
 

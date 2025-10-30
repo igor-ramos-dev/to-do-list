@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Form, ButtonForm } from "./styles";
 
-import useLocalToDo from "../../hooks/useLocalToDo";
+import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
 export default function ToDoForm() {
-  const [_, setToDosList] = useLocalToDo("toDos", []);
   const [toDo, setToDo] = useState("");
+  const { setToDos } = useContext(ToDoContext);
 
   function handleChangeToDo(event) {
     setToDo(event.target.value);
@@ -19,7 +19,7 @@ export default function ToDoForm() {
       toDo,
     };
 
-    setToDosList((prevState) => [...prevState, newToDo]);
+    setToDos((prevState) => [...prevState, newToDo]);
     setToDo("");
   }
 
