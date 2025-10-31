@@ -13,6 +13,7 @@ export default {
     placeholder: "#9CA3AF",
     icon: "#9CA3AF",
     iconHover: "#2563EB",
+    deleteIconHover: "#DC2626",
     toggleOffBg: "#E5E7EB",
   },
   toggleSlider: "translate(26px)",

@@ -1,10 +1,9 @@
-import { Item, List, Checkbox } from "./styles";
+import { useContext } from "react";
 
+import { Item, List, Checkbox, Button } from "./styles";
 import { Pencil, Trash2 } from "lucide-react";
 
 import { ToDoContext } from "../../context/ToDos/ToDoContext";
-
-import { useContext } from "react";
 
 export default function ToDoList() {
   const { toDos } = useContext(ToDoContext);
@@ -18,12 +17,12 @@ export default function ToDoList() {
             <span>{toDo.toDo}</span>
           </div>
           <div className="actions">
-            <a href="">
+            <Button className="edit-button">
               <Pencil />
-            </a>
-            <a href="">
+            </Button>
+            <Button className="delete-button">
               <Trash2 />
-            </a>
+            </Button>
           </div>
         </Item>
       ))}

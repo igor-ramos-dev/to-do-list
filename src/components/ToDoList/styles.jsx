@@ -22,16 +22,30 @@ export const Item = styled.li`
   .actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+  }
+`;
 
-    a {
-      color: ${({ theme }) => theme.colors.icon};
-      text-decoration: none;
-      transition: color 0.15s ease-in;
+export const Button = styled.button`
+  color: ${({ theme }) => theme.colors.icon};
+  text-decoration: none;
+  transition: color 0.15s ease-in;
+  background: none;
+  border: none;
+  line-height: 0;
+  width: 30px;
+  height: 30px;
+  outline: none;
 
-      &:hover {
-        color: ${({ theme }) => theme.colors.iconHover};
-      }
+  &.edit-button {
+    &:hover {
+      color: ${({ theme }) => theme.colors.iconHover};
+    }
+  }
+
+  &.delete-button {
+    &:hover {
+      color: ${({ theme }) => theme.colors.deleteIconHover};
     }
   }
 `;
