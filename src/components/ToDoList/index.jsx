@@ -6,7 +6,11 @@ import { Pencil, Trash2 } from "lucide-react";
 import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
 export default function ToDoList() {
-  const { toDos } = useContext(ToDoContext);
+  const { toDos, setToDos } = useContext(ToDoContext);
+
+  function handleDeleteToDo(id) {
+    setToDos((prevState) => prevState.filter((toDo) => toDo.id !== id));
+  }
 
   return (
     <List>
@@ -20,7 +24,10 @@ export default function ToDoList() {
             <Button className="edit-button">
               <Pencil />
             </Button>
-            <Button className="delete-button">
+            <Button
+              onClick={() => handleDeleteToDo(toDo.id)}
+              className="delete-button"
+            >
               <Trash2 />
             </Button>
           </div>
