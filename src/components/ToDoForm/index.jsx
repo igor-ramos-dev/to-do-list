@@ -7,7 +7,7 @@ export default function ToDoForm() {
   const [toDo, setToDo] = useState("");
   const { setToDos } = useContext(ToDoContext);
 
-  function handleChangeToDo(event) {
+  function handleAddToDo(event) {
     setToDo(event.target.value);
   }
 
@@ -16,7 +16,8 @@ export default function ToDoForm() {
 
     const newToDo = {
       id: crypto.randomUUID(),
-      toDo,
+      name: toDo,
+      isEditing: false,
     };
 
     setToDos((prevState) => [...prevState, newToDo]);
@@ -29,7 +30,7 @@ export default function ToDoForm() {
         type="text"
         placeholder="Adicionar nova tarefa"
         value={toDo}
-        onChange={handleChangeToDo}
+        onChange={handleAddToDo}
       />
       <ButtonForm>Adicionar</ButtonForm>
     </Form>

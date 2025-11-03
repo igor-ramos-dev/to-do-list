@@ -20,20 +20,6 @@ export const InputWrapper = styled.div`
   width: 100%;
   max-width: 140px;
   margin-right: -20px;
-
-  input {
-    background-color: transparent;
-    padding: 8px 0 8px 28px;
-    width: 100%;
-    font-size: inherit;
-    color: ${({ theme }) => theme.colors.text};
-    border: none;
-    outline: none;
-
-    &::placeholder {
-      color: ${({ theme }) => theme.colors.placeholder};
-    }
-  }
 `;
 
 export const SearchIcon = styled(Search)`

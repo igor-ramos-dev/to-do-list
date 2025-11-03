@@ -6,12 +6,14 @@ import {
   SelectWrapper,
 } from "./styles";
 
+import { Input } from "../Input";
+
 export default function ToDoFilters() {
   return (
     <Container>
       <InputWrapper>
         <SearchIcon />
-        <input type="text" placeholder="Buscar..." />
+        <Input className="search-toDo" type="text" placeholder="Buscar..." />
       </InputWrapper>
 
       <Button>Todas</Button>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const List = styled.ul`
   list-style: none;
@@ -11,7 +11,7 @@ export const Item = styled.li`
   justify-content: space-between;
 
   border-top: 1px solid #e5e7eb;
-  padding: 12px 0;
+  padding: 14px 0;
 
   .item-container {
     display: flex;
@@ -40,6 +40,11 @@ export const Button = styled.button`
   &.edit-button {
     &:hover {
       color: ${({ theme }) => theme.colors.iconHover};
+      ${({ $isEditing }) =>
+        $isEditing &&
+        css`
+          color: ${({ theme }) => theme.colors.deleteIconHover};
+        `}
     }
   }
 
