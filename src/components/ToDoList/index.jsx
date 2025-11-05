@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import { Input } from "../Input";
 import { Item, List, Checkbox, Button } from "./styles";
@@ -8,30 +8,45 @@ import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
 export default function ToDoList() {
   const { toDos, setToDos } = useContext(ToDoContext);
-  const [renamedToDo, setRenamedToDo] = useState("");
+  const [renameToDo, setRenameToDo] = useState("");
   const [editingId, setEditingId] = useState(null);
 
-  function handleToEditToDo(toDo) {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (editingId !== null) inputRef.current?.focus();
+  }, [editingId]);
+
+  function handleEditToDo(toDo) {
     setEditingId(toDo.id);
+    setRenameToDo(toDo.name);
   }
 
-  function handleRenameToDo(event) {
-    setRenamedToDo(event.target.value);
+  function handleRenamedToDo(event) {
+    setRenameToDo(event.target.value);
+  }
+
+  function handleSaveEdit() {
+    if (editingId === null) return;
+
+    setToDos((prev) =>
+      prev.map((toDo) =>
+        toDo.id === editingId ? { ...toDo, name: renameToDo } : toDo
+      )
+    );
+
+    setEditingId(null);
+    setRenameToDo("");
+  }
+
+  function handleCancelEdit() {
+    setEditingId(null);
+    setRenameToDo("");
   }
 
   function handleKeyDown(event) {
-    if (event.key === "Enter") {
-      setToDos((prev) =>
-        prev.map((toDo) =>
-          toDo.id === editingId ? { ...toDo, name: renamedToDo } : toDo
-        )
-      );
-
-      setEditingId(null);
-      setRenamedToDo("");
-    } else {
-      return;
-    }
+    if (event.key === "Enter") handleSaveEdit();
+    if (event.key === "Escape") handleCancelEdit();
   }
 
   function handleDeleteToDo(id) {
@@ -49,9 +64,10 @@ export default function ToDoList() {
               <Input
                 type="text"
                 placeholder="Renomear tarefa..."
-                value={renamedToDo}
-                onChange={(event) => handleRenameToDo(event)}
-                onKeyDown={(event) => handleKeyDown(event)}
+                ref={inputRef}
+                value={renameToDo}
+                onChange={handleRenamedToDo}
+                onKeyDown={handleKeyDown}
               />
             ) : (
               <span>{toDo.name}</span>
@@ -60,7 +76,7 @@ export default function ToDoList() {
           <div className="actions">
             <Button
               className="edit-button"
-              onClick={() => handleToEditToDo(toDo)}
+              onClick={() => handleEditToDo(toDo)}
               $isEditing={toDo.isEditing}
             >
               {editingId === toDo.id ? <X /> : <Pencil />}
