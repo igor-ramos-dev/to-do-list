@@ -17,6 +17,7 @@ export default {
     deleteIconHover: "#EF4444",
     toggleOnBg: "#60A5FA",
     toggleSlider: "translate(0px)",
+    checkBox: "#22C55E",
 
     shadow: "0px 2px 6px rgba(139, 92, 246, 0.35)",
   },
