@@ -17,7 +17,7 @@ export default function ToDoForm() {
     const newToDo = {
       id: crypto.randomUUID(),
       name: toDo,
-      isEditing: false,
+      completed: false,
     };
 
     setToDos((prevState) => [...prevState, newToDo]);

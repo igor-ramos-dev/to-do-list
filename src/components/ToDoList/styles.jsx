@@ -55,7 +55,9 @@ export const Button = styled.button`
   }
 `;
 
-export const Checkbox = styled.input.attrs({ type: "checkbox" })`
+export const Checkbox = styled.input.attrs({
+  type: "checkbox",
+})`
   accent-color: ${({ theme }) => theme.colors.checkBox};
   width: 18px;
   height: 18px;

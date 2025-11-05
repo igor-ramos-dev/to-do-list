@@ -10,8 +10,11 @@ export default function ToDoList() {
   const { toDos, setToDos } = useContext(ToDoContext);
   const [renameToDo, setRenameToDo] = useState("");
   const [editingId, setEditingId] = useState(null);
+  const [completedToDos, setCompletedToDos] = useState([]);
 
   const inputRef = useRef(null);
+
+  console.log(completedToDos);
 
   useEffect(() => {
     if (editingId !== null) inputRef.current?.focus();
@@ -53,43 +56,67 @@ export default function ToDoList() {
     setToDos((prevState) => prevState.filter((toDo) => toDo.id !== id));
   }
 
+  function handleToggleComplete(id) {
+    const updatedToDos = toDos.map((toDo) => {
+      return toDo.id === id ? { ...toDo, completed: !toDo.completed } : toDo;
+    });
+
+    setToDos(updatedToDos);
+
+    const completed = updatedToDos.filter((toDo) => toDo.completed);
+    setCompletedToDos(completed);
+  }
+
   return (
     <List>
-      {toDos.map((toDo) => (
-        <Item key={toDo.id}>
-          <div className="item-container">
-            <Checkbox />
-
-            {editingId === toDo.id ? (
-              <Input
-                type="text"
-                placeholder="Renomear tarefa..."
-                ref={inputRef}
-                value={renameToDo}
-                onChange={handleRenamedToDo}
-                onKeyDown={handleKeyDown}
-              />
-            ) : (
-              <span>{toDo.name}</span>
-            )}
-          </div>
-          <div className="actions">
-            <Button
-              className="edit-button"
-              onClick={() => handleEditToDo(toDo)}
-              $isEditing={toDo.isEditing}
-            >
-              {editingId === toDo.id ? <X /> : <Pencil />}
-            </Button>
-            <Button
-              className="delete-button"
-              onClick={() => handleDeleteToDo(toDo.id)}
-            >
-              <Trash2 />
-            </Button>
-          </div>
+      {toDos.length === 0 ? (
+        <Item>
+          <p>Você ainda não possui uma tarefa.</p>
         </Item>
-      ))}
+      ) : (
+        toDos.map((toDo) => (
+          <Item key={toDo.id}>
+            <div className="item-container">
+              {toDo.completed ? (
+                <Checkbox
+                  defaultChecked
+                  onClick={() => handleToggleComplete(toDo.id)}
+                />
+              ) : (
+                <Checkbox onClick={() => handleToggleComplete(toDo.id)} />
+              )}
+
+              {editingId === toDo.id ? (
+                <Input
+                  type="text"
+                  placeholder="Renomear tarefa..."
+                  ref={inputRef}
+                  value={renameToDo}
+                  onChange={handleRenamedToDo}
+                  onKeyDown={handleKeyDown}
+                />
+              ) : (
+                <span>{toDo.name}</span>
+              )}
+            </div>
+            <div className="actions">
+              <Button
+                className="edit-button"
+                onClick={() => handleEditToDo(toDo)}
+                $isEditing={toDo.isEditing}
+              >
+                {editingId === toDo.id ? <X /> : <Pencil />}
+              </Button>
+              <Button
+                className="delete-button"
+                onClick={() => handleDeleteToDo(toDo.id)}
+              >
+                <Trash2 />
+              </Button>
+            </div>
+          </Item>
+        ))
+      )}
     </List>
   );
 }
