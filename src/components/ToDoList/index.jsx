@@ -8,13 +8,13 @@ import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
 export default function ToDoList() {
   const { toDos, setToDos } = useContext(ToDoContext);
+
   const [renameToDo, setRenameToDo] = useState("");
   const [editingId, setEditingId] = useState(null);
-  const [completedToDos, setCompletedToDos] = useState([]);
+
+  // const completedToDos = toDos.filter((toDo) => toDo.completed);
 
   const inputRef = useRef(null);
-
-  console.log(completedToDos);
 
   useEffect(() => {
     if (editingId !== null) inputRef.current?.focus();
@@ -62,9 +62,6 @@ export default function ToDoList() {
     });
 
     setToDos(updatedToDos);
-
-    const completed = updatedToDos.filter((toDo) => toDo.completed);
-    setCompletedToDos(completed);
   }
 
   return (
