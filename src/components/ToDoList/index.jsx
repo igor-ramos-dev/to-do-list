@@ -73,12 +73,20 @@ export default function ToDoList({ activeFilter }) {
 
   return (
     <List>
-      {toDos.length === 0 ? (
+      {renderedTodos.length === 0 ? (
         <Item>
-          <p>Você ainda não possui uma tarefa.</p>
+          <p>
+            Você ainda não possui uma tarefa
+            {activeFilter === "concluídas"
+              ? " concluída"
+              : activeFilter === "pendentes"
+              ? " pendente"
+              : ""}
+            .
+          </p>
         </Item>
       ) : (
-        toDos.map((toDo) => (
+        renderedTodos.map((toDo) => (
           <Item key={toDo.id}>
             <div className="item-container">
               {toDo.completed ? (
