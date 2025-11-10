@@ -9,9 +9,7 @@ import { ToDoProvider } from "../../context/ToDos/ToDoProvider";
 import { useCallback, useState } from "react";
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState("todas"); // 'todas' | 'pendentes' | 'concluídas'
-
-  console.log(activeFilter);
+  const [activeFilter, setActiveFilter] = useState("todas");
 
   const handleChangeFilter = useCallback((filter) => {
     setActiveFilter(filter);
@@ -23,7 +21,7 @@ export default function Home() {
         <Header />
         <ToDoForm />
         <ToDoFilters onChangeFilter={handleChangeFilter} />
-        <ToDoList />
+        <ToDoList activeFilter={activeFilter} />
       </ToDoProvider>
     </Container>
   );

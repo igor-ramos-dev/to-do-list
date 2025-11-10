@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import { Input } from "../Input";
 import { Item, List, Checkbox, Button } from "./styles";
@@ -6,13 +6,14 @@ import { Pencil, Trash2, X } from "lucide-react";
 
 import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
-export default function ToDoList() {
+export default function ToDoList({ activeFilter }) {
   const { toDos, setToDos } = useContext(ToDoContext);
 
   const [renameToDo, setRenameToDo] = useState("");
   const [editingId, setEditingId] = useState(null);
 
-  // const completedToDos = toDos.filter((toDo) => toDo.completed);
+  const completedToDos = toDos.filter((toDo) => toDo.completed);
+  const incompletedToDos = toDos.filter((toDo) => !toDo.completed);
 
   const inputRef = useRef(null);
 
@@ -63,6 +64,12 @@ export default function ToDoList() {
 
     setToDos(updatedToDos);
   }
+
+  const renderedTodos = useMemo(() => {
+    if (activeFilter === "concluídas") return completedToDos;
+    if (activeFilter === "pendentes") return incompletedToDos;
+    return toDos;
+  }, [activeFilter, toDos, completedToDos, incompletedToDos]);
 
   return (
     <List>
