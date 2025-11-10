@@ -8,7 +8,7 @@ import {
 
 import { Input } from "../Input";
 
-export default function ToDoFilters() {
+export default function ToDoFilters({ onChangeFilter }) {
   return (
     <Container>
       <InputWrapper>
@@ -16,9 +16,9 @@ export default function ToDoFilters() {
         <Input className="search-toDo" type="text" placeholder="Buscar..." />
       </InputWrapper>
 
-      <Button>Todas</Button>
-      <Button>Pendentes</Button>
-      <Button>Concluídas</Button>
+      <Button onClick={() => onChangeFilter("todas")}>Todas</Button>
+      <Button onClick={() => onChangeFilter("pendentes")}>Pendentes</Button>
+      <Button onClick={() => onChangeFilter("concluídas")}>Concluídas</Button>
       <SelectWrapper>
         <span>Ordenar por:</span>
         <select>
