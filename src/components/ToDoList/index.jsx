@@ -6,7 +6,7 @@ import { Pencil, Trash2, X } from "lucide-react";
 
 import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
-export default function ToDoList({ activeFilter }) {
+export default function ToDoList({ activeFilter, searchToDo }) {
   const { toDos, setToDos } = useContext(ToDoContext);
 
   const [renameToDo, setRenameToDo] = useState("");
@@ -65,15 +65,19 @@ export default function ToDoList({ activeFilter }) {
     setToDos(updatedToDos);
   }
 
-  const renderedTodos = useMemo(() => {
+  const filterToDosByActiveTab = useMemo(() => {
     if (activeFilter === "concluídas") return completedToDos;
     if (activeFilter === "pendentes") return incompletedToDos;
     return toDos;
   }, [activeFilter, toDos, completedToDos, incompletedToDos]);
 
+  const showToDos = filterToDosByActiveTab.filter((toDo) =>
+    toDo.name.toLowerCase().includes(searchToDo.toLowerCase())
+  );
+
   return (
     <List>
-      {renderedTodos.length === 0 ? (
+      {showToDos.length === 0 ? (
         <Item>
           <p>
             Você ainda não possui uma tarefa
@@ -86,7 +90,7 @@ export default function ToDoList({ activeFilter }) {
           </p>
         </Item>
       ) : (
-        renderedTodos.map((toDo) => (
+        showToDos.map((toDo) => (
           <Item key={toDo.id}>
             <div className="item-container">
               {toDo.completed ? (

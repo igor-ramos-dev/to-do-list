@@ -8,12 +8,22 @@ import {
 
 import { Input } from "../Input";
 
-export default function ToDoFilters({ onChangeFilter }) {
+export default function ToDoFilters({
+  onChangeFilter,
+  onSearchToDo,
+  searchToDo,
+}) {
   return (
     <Container>
       <InputWrapper>
         <SearchIcon />
-        <Input className="search-toDo" type="text" placeholder="Buscar..." />
+        <Input
+          value={searchToDo}
+          onChange={onSearchToDo}
+          className="search-toDo"
+          type="text"
+          placeholder="Buscar..."
+        />
       </InputWrapper>
 
       <Button onClick={() => onChangeFilter("todas")}>Todas</Button>

@@ -10,18 +10,27 @@ import { useCallback, useState } from "react";
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("todas");
+  const [searchToDo, setSearchToDo] = useState("");
 
   const handleChangeFilter = useCallback((filter) => {
     setActiveFilter(filter);
   }, []);
+
+  function handleSearchToDo(e) {
+    setSearchToDo(e.target.value);
+  }
 
   return (
     <Container>
       <ToDoProvider>
         <Header />
         <ToDoForm />
-        <ToDoFilters onChangeFilter={handleChangeFilter} />
-        <ToDoList activeFilter={activeFilter} />
+        <ToDoFilters
+          searchToDo={searchToDo}
+          onSearchToDo={handleSearchToDo}
+          onChangeFilter={handleChangeFilter}
+        />
+        <ToDoList activeFilter={activeFilter} searchToDo={searchToDo} />
       </ToDoProvider>
     </Container>
   );
