@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+export const InputSearch = styled.input`
   font-size: inherit;
   border: none;
   outline: none;
+  background-color: transparent;
 
   &.search-toDo {
     width: 100%;
@@ -11,6 +12,6 @@ export const Input = styled.input`
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.placeholder};
+    color: ${({ theme }) => theme.colors.lightGray};
   }
 `;

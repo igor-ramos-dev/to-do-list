@@ -6,7 +6,7 @@ import {
   SelectWrapper,
 } from "./styles";
 
-import { Input } from "../Input";
+import { InputSearch } from "../InputSearch";
 
 export default function ToDoFilters({
   onChangeFilter,
@@ -17,7 +17,7 @@ export default function ToDoFilters({
     <Container>
       <InputWrapper>
         <SearchIcon />
-        <Input
+        <InputSearch
           value={searchToDo}
           onChange={onSearchToDo}
           className="search-toDo"

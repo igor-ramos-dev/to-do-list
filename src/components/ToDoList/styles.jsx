@@ -27,7 +27,7 @@ export const Item = styled.li`
 `;
 
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.icon};
+  color: ${({ theme }) => theme.colors.lightGray};
   text-decoration: none;
   transition: color 0.15s ease-in;
   background: none;

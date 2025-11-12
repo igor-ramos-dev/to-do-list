@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
-import { Input } from "../Input";
+import { InputSearch as InputRename } from "../InputSearch";
 import { Item, List, Checkbox, Button } from "./styles";
 import { Pencil, Trash2, X } from "lucide-react";
 
@@ -103,7 +103,7 @@ export default function ToDoList({ activeFilter, searchToDo }) {
               )}
 
               {editingId === toDo.id ? (
-                <Input
+                <InputRename
                   type="text"
                   placeholder="Renomear tarefa..."
                   ref={inputRef}

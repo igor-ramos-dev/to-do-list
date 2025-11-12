@@ -35,7 +35,7 @@ export const Form = styled.form`
     letter-spacing: inherit;
 
     &::placeholder {
-      color: ${({ theme }) => theme.colors.placeholder};
+      color: ${({ theme }) => theme.colors.lightGray};
       font-weight: 400;
     }
   }

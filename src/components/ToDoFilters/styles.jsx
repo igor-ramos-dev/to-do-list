@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  color: ${({ theme }) => theme.colors.placeholder};
 
   margin-top: 16px;
 
@@ -20,6 +19,7 @@ export const InputWrapper = styled.div`
   width: 100%;
   max-width: 140px;
   margin-right: -20px;
+  color: ${({ theme }) => theme.colors.lightGray};
 `;
 
 export const SearchIcon = styled(Search)`
@@ -30,8 +30,8 @@ export const SearchIcon = styled(Search)`
 `;
 
 export const Button = styled.button`
+  color: ${({ theme }) => theme.colors.lightGray};
   font-size: inherit;
-  color: inherit;
   background-color: transparent;
   border: 2px solid transparent;
   padding: 3px 0;
@@ -51,6 +51,7 @@ export const Button = styled.button`
 export const SelectWrapper = styled.div`
   display: flex;
   align-items: center;
+  color: ${({ theme }) => theme.colors.lightGray};
   gap: 6px;
 
   select {
