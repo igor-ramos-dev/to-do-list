@@ -19,11 +19,15 @@ export const ButtonForm = styled.button`
 export const Form = styled.form`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 18px;
 
   margin-top: 16px;
   letter-spacing: 0.03em;
+`;
+
+export const SearchWrapper = styled.div`
+  width: 100%;
 
   input {
     font-size: 14px;
@@ -38,5 +42,12 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.colors.lightGray};
       font-weight: 400;
     }
+  }
+
+  label {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: ${({ theme }) => theme.colors.deleteIconHover};
   }
 `;
