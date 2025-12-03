@@ -5,7 +5,7 @@ import { ToDoContext } from "../../context/ToDos/ToDoContext";
 
 export default function ToDoForm() {
   const [toDo, setToDo] = useState("");
-  const { _, setToDos } = useContext(ToDoContext);
+  const { toDos, setToDos } = useContext(ToDoContext);
   const [inputFormError, setInputFormError] = useState("");
 
   function handleAddToDo(event) {
@@ -17,15 +17,24 @@ export default function ToDoForm() {
   function handleSubmitToDo(event) {
     event.preventDefault();
 
+    // Verifica se o campo de tarefa está vazio
     if (!toDo) return setInputFormError("Adicione uma tarefa!");
 
+    // Verifica se a tarefa já existe
+    // Retorna mensagem de erro caso exista
+    const toDoAlreadyExists = toDos.find((toDoItem) => toDoItem.name === toDo);
+    if (toDoAlreadyExists) return setInputFormError("Essa tarefa já existe!");
+
+    // Cria a nova tarefa
+    // E a insere na lista de tarefas
     const newToDo = {
       id: crypto.randomUUID(),
       name: toDo,
       completed: false,
     };
-
     setToDos((prevState) => [...prevState, newToDo]);
+
+    // Esvazia o campo de adicionar tarefa
     setToDo("");
   }
 
