@@ -17,13 +17,20 @@ export default function ToDoForm() {
   function handleSubmitToDo(event) {
     event.preventDefault();
 
-    // Verifica se o campo de tarefa está vazio
+    // Verifica se o campo de adicionar tarefa está vazio
     if (!toDo) return setInputFormError("Adicione uma tarefa!");
 
     // Verifica se a tarefa já existe
     // Retorna mensagem de erro caso exista
-    const toDoAlreadyExists = toDos.find((toDoItem) => toDoItem.name === toDo);
+    const toDoAlreadyExists = toDos.find(
+      (toDoItem) => toDoItem.name === toDo.trim()
+    );
     if (toDoAlreadyExists) return setInputFormError("Essa tarefa já existe!");
+
+    // Verifica se o campo de adicionar tarefas
+    // contém apenas espaço em branco
+    const onlyWhiteSpace = !toDo.trim();
+    if (onlyWhiteSpace) return setInputFormError("Adicione uma tarefa válida!");
 
     // Cria a nova tarefa
     // E a insere na lista de tarefas
