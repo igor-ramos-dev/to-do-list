@@ -1,16 +1,57 @@
-# React + Vite
+# 📝 To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de gerenciamento de tarefas desenvolvida com React, com foco em praticar manipulação de estado, persistência de dados no navegador e boas práticas de UI.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Adicionar, editar e excluir tarefas (CRUD completo)
+- 🔍 Busca por tarefa
+- 🗂️ Filtro por status: Todas, Pendentes e Concluídas
+- 💾 Persistência de dados via `localStorage` (as tarefas continuam salvas após recarregar a página)
+- 🌗 Alternância entre dark mode e light mode
+- 🔤 Ordenação alfabética *(em desenvolvimento)*
 
-## React Compiler
+## 🚀 Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/)
+- JavaScript (ES6+)
+- CSS
 
-## Expanding the ESLint configuration
+## 📸 Demonstração
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="905" height="557" alt="image" src="https://github.com/user-attachments/assets/6f9958b8-3e7a-4653-a959-91cb9459023b" />
+
+
+## 🔗 Acesse o projeto
+
+- **Deploy:** <em produção>
+
+## 🛠️ Como rodar localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/igor-ramos-dev/to-do-list.git
+
+# Acesse a pasta do projeto
+cd to-do-list
+
+# Instale as dependências
+npm install
+
+# Rode a aplicação
+npm run dev
+```
+
+A aplicação abrirá em `http://localhost:3000`.
+
+## 📌 Próximos passos
+
+- Implementar a ordenação alfabética das tarefas
+- Adicionar back-end próprio (Node.js + PostgreSQL) para persistência de dados além do navegador
+- Adicionar testes automatizados
+
+## 👤 Autor
+
+**Igor Ferreira Ramos**
+- LinkedIn: [linkedin.com/in/igor-ramos-a0b983112](https://linkedin.com/in/igor-ramos-a0b983112)
+- GitHub: [github.com/igor-ramos-dev](https://github.com/igor-ramos-dev)
