@@ -42,7 +42,6 @@ npm install
 npm run dev
 ```
 
-A aplicação abrirá em `http://localhost:3000`.
 
 ## 📌 Próximos passos
 
